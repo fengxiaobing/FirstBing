@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: "com.mob.sdk"
 
 android {
     compileSdkVersion 26
@@ -18,17 +17,10 @@ android {
         }
     }
 }
-MobSDK {
-    appKey "27472a3e06978"
-    appSecret "c6b7cbd1d8db8ebe1e46141b39eb3106"
 
-    SMSSDK {
-        gui false
-    }
-}
 ext {
     androidutilsVersion = '1.0.6'
-    appcompatVersion = '26.1.0'
+    appcompatVersion = '26.0.2'
     retrofitVersion = '2.3.0'
     logginginterceptor = '3.9.1'
     rxjavaVersion = '2.1.11'

@@ -1,26 +1,23 @@
-package com.bing.android.mvp.main;
+package com.bing.android.mvp.login;
 
+import com.bing.android.mvp.mainback.MainBackModel;
+import com.bing.android.mvp.mainback.MainBackView;
 import com.bing.android.mvp.other.BasePresenter;
 import com.bing.android.retrofit.ApiCallback;
 
-/**
- * Created by WuXiaolong on 2015/9/23.
- * github:https://github.com/WuXiaolong/
- * 微信公众号：吴小龙同学
- * 个人博客：http://wuxiaolong.me/
- */
-public class MainPresenter extends BasePresenter<MainView> {
 
-    public MainPresenter(MainView view) {
+public class LoginPresenter extends BasePresenter<MainBackView> {
+
+    public LoginPresenter(MainBackView view) {
         attachView(view);
     }
 
     public void loadDataByRetrofitRxjava(String cityId) {
         mvpView.showLoading();
         addSubscription(apiStores.loadDataByRetrofitRxJava(cityId),
-                new ApiCallback<MainModel>() {
+                new ApiCallback<MainBackModel>() {
                     @Override
-                    public void onSuccess(MainModel model) {
+                    public void onSuccess(MainBackModel model) {
                         mvpView.getDataSuccess(model);
                     }
 

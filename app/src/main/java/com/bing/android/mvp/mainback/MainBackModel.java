@@ -1,13 +1,7 @@
-package com.bing.android.mvp.main;
+package com.bing.android.mvp.mainback;
 
-/**
- * Created by WuXiaolong on 2015/9/23.
- * 业务具体处理，包括负责存储、检索、操纵数据等
- * github:https://github.com/WuXiaolong/
- * 微信公众号：吴小龙同学
- * 个人博客：http://wuxiaolong.me/
- */
-public class MainModel {
+
+public class MainBackModel {
 
     private WeatherinfoBean weatherinfo;
 

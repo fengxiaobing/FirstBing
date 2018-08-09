@@ -1,46 +1,158 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.bing.android.ui.MainActivity">
+    <include layout="@layout/toolbar"/>
 
-    <include layout="@layout/toolbar" />
-
-    <Button
-        android:id="@+id/button0"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:onClick="onClick"
-        android:text="@string/text0" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:clipChildren="false">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:onClick="onClick"
-        android:text="@string/text1" />
+        <com.bing.android.widget.MyViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:layout_above="@+id/view"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:onClick="onClick"
-        android:text="@string/text2" />
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        <View
+            android:id="@+id/view"
+            android:layout_above="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eeeeee"/>
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:id="@+id/rl_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/iv_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/btn_home" />
+
+                <TextView
+                    android:id="@+id/tv_home"
+                    android:textSize="10sp"
+                    android:layout_centerHorizontal="true"
+                    android:text="首页"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_home"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_diary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/iv_diary"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/btn_diary" />
+
+                <TextView
+                    android:id="@+id/tv_diary"
+                    android:layout_below="@+id/iv_diary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="美丽日记"
+                    android:textSize="10sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_gravity="bottom">
+
+                <ImageView
+                    android:id="@+id/iv_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_find" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_market"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/iv_market"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/btn_market" />
+                <TextView
+                    android:id="@+id/tv_market"
+
+                    android:textSize="10sp"
+                    android:layout_centerHorizontal="true"
+                    android:text="商城"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_market"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginBottom="3dp"
+                android:id="@+id/rl_own"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/iv_own"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/btn_own" />
+                <TextView
+                    android:id="@+id/tv_own"
+                    android:textSize="10sp"
+                    android:layout_centerInParent="true"
+                    android:text="个人中心"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_own"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

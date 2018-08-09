@@ -16,4 +16,9 @@
         <item name="android:windowBackground">@drawable/iosstyle_halftransparent_bg</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+    <!--用于splash-->
+    <style name="FitSystemWindows">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 </resources>

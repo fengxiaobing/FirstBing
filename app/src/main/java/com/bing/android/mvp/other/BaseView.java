@@ -1,4 +1,4 @@
-package com.bing.android.mvp.main;
+package com.bing.android.mvp.other;
 
 
 public interface BaseView {

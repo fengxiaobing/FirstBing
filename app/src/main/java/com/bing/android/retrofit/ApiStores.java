@@ -1,6 +1,6 @@
 package com.bing.android.retrofit;
 
-import com.bing.android.mvp.main.MainModel;
+import com.bing.android.mvp.mainback.MainBackModel;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
@@ -19,9 +19,9 @@ public interface ApiStores {
 
     //加载天气
     @GET("adat/sk/{cityId}.html")
-    Call<MainModel> loadDataByRetrofit(@Path("cityId") String cityId);
+    Call<MainBackModel> loadDataByRetrofit(@Path("cityId") String cityId);
 
     //加载天气
     @GET("adat/sk/{cityId}.html")
-    Observable<MainModel> loadDataByRetrofitRxJava(@Path("cityId") String cityId);
+    Observable<MainBackModel> loadDataByRetrofitRxJava(@Path("cityId") String cityId);
 }
