@@ -61,6 +61,7 @@ public class SplashActivity extends AppCompatActivity {
         Random r = new Random(SystemClock.elapsedRealtime());
         mIvSplash.setImageResource(SPLASH_ARRAY[r.nextInt(SPLASH_ARRAY.length)]);
         animateImage();
+        mTvAuthor.setText("冯晓冰");
     }
     private void animateImage() {
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(mIvSplash, "scaleX", 1f, SCALE_END);
@@ -73,7 +74,7 @@ public class SplashActivity extends AppCompatActivity {
         set.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-               startActivity(new Intent(SplashActivity.this,MainBackActivity.class));
+               startActivity(new Intent(SplashActivity.this,MainActivity.class));
                 SplashActivity.this.finish();
             }
         });

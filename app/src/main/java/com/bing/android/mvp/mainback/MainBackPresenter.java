@@ -1,17 +1,23 @@
 package com.bing.android.mvp.mainback;
 
+import android.content.Context;
+
 import com.bing.android.mvp.other.BasePresenter;
 import com.bing.android.retrofit.ApiCallback;
+import com.bing.android.widget.SimpleLoadDialog;
 
 
 public class MainBackPresenter extends BasePresenter<MainBackView> {
-
-    public MainBackPresenter(MainBackView view) {
+    SimpleLoadDialog dialogHandler;
+    public MainBackPresenter(MainBackView view,Context context) {
         attachView(view);
+        dialogHandler = new SimpleLoadDialog(context,true);
     }
 
     public void loadDataByRetrofitRxjava(String cityId) {
-        mvpView.showLoading();
+        if (dialogHandler != null) {
+            dialogHandler.show();
+        }
         addSubscription(apiStores.loadDataByRetrofitRxJava(cityId),
                 new ApiCallback<MainBackModel>() {
                     @Override
@@ -27,9 +33,11 @@ public class MainBackPresenter extends BasePresenter<MainBackView> {
 
                     @Override
                     public void onFinish() {
-                        mvpView.hideLoading();
+                        if (dialogHandler != null) {
+                            dialogHandler.dismiss();
+                            dialogHandler=null;
+                        }
                     }
-
                 });
     }
 

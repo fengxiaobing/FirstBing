@@ -30,11 +30,4 @@ public abstract class MvpActivity<P extends BasePresenter> extends BaseActivity 
         }
     }
 
-    public void showLoading() {
-        showProgressDialog();
-    }
-
-    public void hideLoading() {
-        dismissProgressDialog();
-    }
 }

@@ -1,5 +1,6 @@
 package com.bing.android.ui;
 
+import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bing.android.R;
+import com.bing.android.adapter.MainPagerAdapter;
 import com.bing.android.widget.MyViewPager;
 
 import butterknife.BindView;
@@ -30,9 +32,6 @@ public class MainActivity extends BaseActivity {
     RelativeLayout rl_market;
     @BindView(R.id.rl_own)
     RelativeLayout rl_own;
-    @BindView(R.id.title)
-    TextView title;
-
 
     @BindView(R.id.iv_find)
     ImageView iv_find;
@@ -80,22 +79,22 @@ public class MainActivity extends BaseActivity {
             case R.id.rl_home:
                 setRadioBtnChecked(view.getId());
                 viewpager.setCurrentItem(0);
-                title.setText("首页");
+                initToolBarAsHome("首页");
                 break;
             case R.id.rl_diary:
                 setRadioBtnChecked(view.getId());
                 viewpager.setCurrentItem(1);
-                title.setText("美丽日记");
+                initToolBarAsHome("新闻");
                 break;
             case R.id.rl_market:
                 setRadioBtnChecked(view.getId());
                 viewpager.setCurrentItem(2);
-                title.setText("商城");
+                initToolBarAsHome("商城");
                 break;
             case R.id.rl_own:
                 setRadioBtnChecked(view.getId());
                 viewpager.setCurrentItem(3);
-                title.setText("个人中心");
+                initToolBarAsHome("个人中心");
                 break;
         }
     }
@@ -109,7 +108,7 @@ public class MainActivity extends BaseActivity {
 
         //默认选中首页
         setRadioBtnChecked(R.id.rl_home);
-        title.setText("首页");
+        initToolBarAsHome("首页");
 
     }
 
@@ -155,21 +154,4 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    private FragmentSkipInterface mFragmentSkipInterface;
-    public void setFragmentSkipInterface(FragmentSkipInterface fragmentSkipInterface) {
-        mFragmentSkipInterface = fragmentSkipInterface;
-    }
-    public interface FragmentSkipInterface {
-        /** ViewPager中子Fragment之间跳转的实现方法 */
-        void gotoFragment(MyViewPager viewPager);
-    }
-    /** Fragment跳转 */
-    public void skipToFragment(){
-        if(mFragmentSkipInterface != null){
-            mFragmentSkipInterface.gotoFragment(viewpager);
-            setRadioBtnChecked(R.id.rl_diary);
-            title.setText("美丽日记");
-
-        }
-    }
 }

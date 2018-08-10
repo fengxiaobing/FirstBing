@@ -35,7 +35,7 @@ public class MainBackActivity extends MvpActivity<MainBackPresenter> implements 
 
     @Override
     protected MainBackPresenter createPresenter() {
-        return new MainBackPresenter(this);
+        return new MainBackPresenter(this,MainBackActivity.this);
     }
 
 
